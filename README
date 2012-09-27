@@ -1,0 +1,27 @@
+ Thread Managing class
+ ---------------------
+ An instance of this class will create a new thread and will start its execution.
+ The class takes the function pointer and variable arguments that needs to be
+ passed to the new created thread.
+
+ How to compile
+ --------------
+ make
+
+To run the test cases:
+--------------------
+./test1
+./test2
+
+
+ Assumptions:
+ -----------
+ 1. The created thread will get all the arguments in an void * array.
+ 2. The arguments passed by the parent thread will stored by allocating memory
+ and pointers to this newly allocated memory will be passed to the child.
+ 3. so for example, if the parent thread passes arguments like
+  (int, char, struct st, int *)
+  we will allocate memory to all the variables passed and
+  pass an array of pointers to the child thread.
+  the child thread need to do an extra level of derefernce.
+  so child will get arguments like (int *, char *, struct st*, int **).
